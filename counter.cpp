@@ -117,10 +117,11 @@ void Counter::add_f()
 {
     auto iter = A.cbegin();
     auto iter2= B.cbegin();
-
-    for(bool bufor=0; iter!=A.cend() && iter2!=B.cend(); 
+    bool bufor=0;
+    for(; iter!=A.cend() && iter2!=B.cend(); 
         iter++, iter2++)
     {
+
         if(*iter && *iter2)
         {
             if(!bufor)
@@ -154,6 +155,20 @@ void Counter::add_f()
     
 
     }
+    auto iter_buf=VALUE.begin();
+    int N=VALUE.size();
+    while(bufor && N)
+    {
+        if(!(*iter_buf))
+        {
+            *iter_buf=1;
+            bufor=0;
+        }
+    iter_buf++;
+    N--;
+    }
+
+
 
 }
 
